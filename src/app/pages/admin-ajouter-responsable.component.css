@@ -1,0 +1,71 @@
+/* 📝 Carte du formulaire */
+.form-card {
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 32px;
+    border-radius: 16px;
+    background-color: #ffffff;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    border-left: 6px solid #2563eb;
+    transition: all 0.3s ease;
+  }
+  
+  /* 📋 Disposition des champs */
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    align-items: center;
+  }
+  
+  /* ✏️ Mat Form Field */
+  mat-form-field {
+    width: 100%;
+  }
+  
+  /* 🎨 Label */
+  mat-label {
+    font-weight: 500;
+    color: #374151;
+  }
+  
+  /* 🎯 Boutons */
+  .form-buttons {
+    grid-column: span 2;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 30px;
+  }
+  
+  button[type="submit"] {
+    background-color: #2563eb;
+    color: white;
+    font-weight: bold;
+    padding: 10px 26px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #1d4ed8;
+  }
+  
+  button[type="reset"] {
+    padding: 10px 26px;
+    font-weight: bold;
+    border-radius: 8px;
+  }
+  
+  /* ✅ Responsive */
+  @media (max-width: 600px) {
+    .form-card {
+      padding: 20px;
+    }
+  
+    .form-buttons {
+      flex-direction: column;
+      gap: 12px;
+    }
+  }
+  

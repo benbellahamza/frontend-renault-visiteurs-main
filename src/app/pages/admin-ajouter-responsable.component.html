@@ -1,0 +1,24 @@
+<mat-card class="form-card">
+    <h2 style="text-align: center; margin-bottom: 20px;">Ajouter un Responsable</h2>
+  
+    <form (ngSubmit)="ajouterResponsable()" class="form-grid">
+      <!-- Login -->
+      <mat-form-field appearance="outline">
+        <mat-label>Identifiant</mat-label>
+        <input matInput [(ngModel)]="responsable.login" name="login" required />
+      </mat-form-field>
+  
+      <!-- Mot de passe -->
+      <mat-form-field appearance="outline">
+        <mat-label>Mot de passe</mat-label>
+        <input matInput [(ngModel)]="responsable.password" name="password" required type="password" />
+      </mat-form-field>
+  
+      <!-- Boutons -->
+      <div class="form-buttons">
+        <button mat-raised-button color="primary" type="submit">Ajouter</button>
+        <button mat-stroked-button color="warn" type="reset" (click)="responsable = { login: '', password: '' }">Annuler</button>
+      </div>
+    </form>
+  </mat-card>
+  

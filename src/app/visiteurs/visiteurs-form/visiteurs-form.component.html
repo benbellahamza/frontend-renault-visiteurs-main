@@ -1,0 +1,62 @@
+<mat-card class="form-card">
+  <h2 style="margin-bottom: 20px; text-align: center;">Ajouter un visiteur</h2>
+
+  <form (ngSubmit)="onSubmit()" #form="ngForm" class="form-grid">
+    <!-- 🧍 Nom -->
+    <mat-form-field appearance="outline">
+      <mat-label>Nom</mat-label>
+      <input matInput name="nom" [(ngModel)]="visiteur.nom" required />
+    </mat-form-field>
+
+    <!-- 🧍‍♂️ Prénom -->
+    <mat-form-field appearance="outline">
+      <mat-label>Prénom</mat-label>
+      <input matInput name="prenom" [(ngModel)]="visiteur.prenom" required />
+    </mat-form-field>
+
+    <!-- 🪪 CIN -->
+    <mat-form-field appearance="outline">
+      <mat-label>CIN</mat-label>
+      <input matInput name="cin" [(ngModel)]="visiteur.cin" required />
+    </mat-form-field>
+
+    <!-- 🏢 Destination -->
+    <mat-form-field appearance="outline">
+      <mat-label>Destination</mat-label>
+      <mat-select [(ngModel)]="visiteur.destination" name="destination" required>
+        <mat-option value="atelier">Atelier</mat-option>
+        <mat-option value="administration">Administration</mat-option>
+        <mat-option value="reception">Réception</mat-option>
+        <mat-option value="comptoire">Comptoire</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- 👤 Genre avec images -->
+    <div class="genre-icons">
+      <label><strong>Genre :</strong></label>
+      <div class="icon-options">
+        <div 
+          class="genre-icon" 
+          [class.selected]="isGenreSelected('Homme')" 
+          (click)="setGenre('Homme')">
+          <img src="assets/icons/man.png" alt="Homme" />
+          <span>Homme</span>
+        </div>
+
+        <div 
+          class="genre-icon" 
+          [class.selected]="isGenreSelected('Femme')" 
+          (click)="setGenre('Femme')">
+          <img src="assets/icons/woman.png" alt="Femme" />
+          <span>Femme</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 📥 Boutons -->
+    <div class="form-buttons">
+      <button mat-raised-button color="primary" type="submit">Ajouter</button>
+      <button mat-stroked-button color="warn" type="reset" style="margin-left: 10px;">Annuler</button>
+    </div>
+  </form>
+</mat-card>

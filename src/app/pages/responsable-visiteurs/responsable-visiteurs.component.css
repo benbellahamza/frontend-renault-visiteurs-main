@@ -1,0 +1,199 @@
+/* 📦 Container principal */
+mat-sidenav-container {
+  height: 100vh;
+  background-color: #f8f9fc;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* 📂 Barre latérale */
+mat-sidenav {
+  width: 250px;
+  background: linear-gradient(180deg, #1e3a8a, #1e293b);
+  color: #ffffff;
+  padding-top: 10px;
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
+}
+
+/* 🧭 Titre de la barre */
+mat-toolbar {
+  background: transparent;
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: center;
+  padding: 16px 0;
+  letter-spacing: 1px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 📜 Liens du menu */
+mat-nav-list a.mat-list-item {
+  color: #ffffff !important;
+  font-weight: 500;
+  padding: 14px 24px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  margin: 4px 10px;
+  display: block;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+/* 🧩 Icônes + texte */
+mat-nav-list a.mat-list-item .mat-icon,
+mat-nav-list a.mat-list-item .mat-line {
+  color: inherit !important;
+}
+
+/* 🖱️ Survol */
+mat-nav-list a.mat-list-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ✅ Lien actif */
+mat-nav-list a.mat-list-item.active-link {
+  background-color: #2563eb;
+  color: #ffffff !important;
+  font-weight: bold;
+  box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.2);
+}
+
+/* 🧾 Contenu */
+mat-sidenav-content {
+  padding: 32px;
+  background-color: #f1f5f9;
+}
+
+/* 🌐 Responsive */
+@media (max-width: 768px) {
+  mat-sidenav {
+    width: 200px;
+  }
+
+  mat-toolbar {
+    font-size: 16px;
+  }
+
+  mat-sidenav-content {
+    padding: 16px;
+  }
+}
+
+/* ✅ RESPONSABLE STYLING AJOUTÉ */
+.container-responsable {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.container-responsable h2 {
+  text-align: center;
+  font-size: 26px;
+  color: #1e293b;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.compteur-responsable-card {
+  background: linear-gradient(to right, #e0f7fa, #b2ebf2);
+  padding: 20px;
+  margin-bottom: 24px;
+  border-left: 6px solid #2563eb;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.compteur-responsable-card h3 {
+  color: #0d47a1;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.compteur-responsable-card p {
+  margin-top: 6px;
+  font-size: 15px;
+  color: #006064;
+}
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 400px;
+}
+
+mat-table {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+mat-header-cell {
+  background-color: #f1f5f9;
+  font-weight: bold;
+  color: #374151;
+  text-transform: uppercase;
+}
+
+mat-cell,
+mat-header-cell {
+  padding: 14px 20px;
+  font-size: 14px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+mat-row:hover {
+  background-color: #f9fafb;
+  transition: background-color 0.3s ease;
+}
+
+.export-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin: 24px 0 12px;
+}
+
+.export-buttons button {
+  font-weight: bold;
+  border-radius: 8px;
+  padding: 10px 20px;
+  transition: background-color 0.3s;
+}
+
+mat-paginator {
+  margin-top: 16px;
+}
+
+@media (max-width: 768px) {
+  .container-responsable {
+    padding: 16px;
+  }
+
+  .export-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .export-buttons button {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  mat-header-cell,
+  mat-cell {
+    padding: 10px;
+    font-size: 13px;
+  }
+}

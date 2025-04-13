@@ -1,0 +1,89 @@
+<div class="container-responsable">
+  <h2>📋 Tableau des visiteurs (Responsable)</h2>
+
+  <!-- 🧮 Compteur -->
+  <mat-card class="compteur-responsable-card">
+    <mat-card-content>
+      <h3>👁️ Résultats des visiteurs (Triés par date de visite)</h3>
+      <p>Total : <strong>{{ totalItems }}</strong> visiteurs</p>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- 🔍 Barre de recherche -->
+  <div class="search-bar">
+    <mat-form-field appearance="outline" class="search-input">
+      <mat-label>🔎 Rechercher par nom</mat-label>
+      <input matInput [(ngModel)]="filtreNom" (input)="appliquerFiltre()">
+    </mat-form-field>
+  </div>
+
+  <!-- 📋 Tableau des visiteurs -->
+  <table mat-table [dataSource]="dataSource" matSort (matSortChange)="onSortChange($event)" class="mat-elevation-z8">
+
+    <!-- ✅ Sélection -->
+    <ng-container matColumnDef="select">
+      <th mat-header-cell *matHeaderCellDef>
+        <mat-checkbox
+          (change)="masterToggle()"
+          [checked]="isAllSelected()"
+          [indeterminate]="selection.hasValue() && !isAllSelected()">
+        </mat-checkbox>
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <mat-checkbox
+          (click)="$event.stopPropagation()"
+          (change)="selection.toggle(row)"
+          [checked]="selection.isSelected(row)">
+        </mat-checkbox>
+      </td>
+    </ng-container>
+
+    <!-- 📄 Colonnes classiques -->
+    <ng-container matColumnDef="nom">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Nom</th>
+      <td mat-cell *matCellDef="let v">{{ v.nom }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="prenom">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Prénom</th>
+      <td mat-cell *matCellDef="let v">{{ v.prenom }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="cin">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>CIN</th>
+      <td mat-cell *matCellDef="let v">{{ v.cin }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="destination">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Destination</th>
+      <td mat-cell *matCellDef="let v">{{ v.destination }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="genre">
+      <th mat-header-cell *matHeaderCellDef>Genre</th>
+      <td mat-cell *matCellDef="let v">{{ v.genre }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="dateEntree">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Date d’entrée</th>
+      <td mat-cell *matCellDef="let v">{{ v.dateEntree | date:'short' }}</td>
+    </ng-container>
+
+    <!-- 🧾 Affichage -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <!-- 📤 Export + Pagination -->
+  <div class="footer-table">
+    <div class="export-buttons">
+      <button mat-raised-button color="primary" (click)="exporterExcel()">⬇️ Exporter tout</button>
+      <button mat-raised-button color="accent" (click)="exporterSelection()" [disabled]="selection.selected.length === 0">
+        📦 Exporter la sélection ({{ selection.selected.length }})
+      </button>
+    </div>
+
+    <mat-paginator [length]="totalItems" [pageSize]="pageSize" (page)="onPageChange($event)">
+    </mat-paginator>
+  </div>
+</div>

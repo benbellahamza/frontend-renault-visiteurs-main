@@ -1,0 +1,21 @@
+<mat-card class="admin-card">
+    <h2>👤 Ajouter un Agent de saisie</h2>
+  
+    <form (ngSubmit)="ajouterAgent()" #form="ngForm" class="admin-form">
+      <mat-form-field appearance="outline">
+        <mat-label>Login</mat-label>
+        <input matInput name="login" [(ngModel)]="agent.login" required>
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline">
+        <mat-label>Mot de passe</mat-label>
+        <input matInput type="password" name="password" [(ngModel)]="agent.password" required>
+      </mat-form-field>
+  
+      <div class="admin-buttons">
+        <button mat-raised-button color="primary" type="submit">Ajouter</button>
+        <button mat-stroked-button color="warn" type="reset">Annuler</button>
+      </div>
+    </form>
+  </mat-card>
+  

@@ -1,0 +1,67 @@
+<div class="container-visiteurs">
+  <h2 class="list-title">📄 Liste des visiteurs</h2>
+
+  <!-- 🧮 Carte compteur -->
+  <mat-card class="compteur-card">
+    <mat-card-content>
+      <h3>👥 Nombre de visiteurs aujourd’hui : {{ nombreVisiteurs }}</h3>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- 📋 Tableau des visiteurs -->
+  <div class="table-container">
+    <table mat-table [dataSource]="visiteurs" class="mat-elevation-z8 table-style">
+
+      <!-- Nom + Avatar -->
+      <ng-container matColumnDef="nom">
+        <th mat-header-cell *matHeaderCellDef>Nom</th>
+        <td mat-cell *matCellDef="let v">
+          <img [src]="getAvatar(v.genre)" class="avatar"> {{ v.nom }}
+        </td>
+      </ng-container>
+
+      <!-- Prénom -->
+      <ng-container matColumnDef="prenom">
+        <th mat-header-cell *matHeaderCellDef>Prénom</th>
+        <td mat-cell *matCellDef="let v">{{ v.prenom }}</td>
+      </ng-container>
+
+      <!-- CIN -->
+      <ng-container matColumnDef="cin">
+        <th mat-header-cell *matHeaderCellDef>CIN</th>
+        <td mat-cell *matCellDef="let v">{{ v.cin }}</td>
+      </ng-container>
+
+      <!-- Destination -->
+      <ng-container matColumnDef="destination">
+        <th mat-header-cell *matHeaderCellDef>Destination</th>
+        <td mat-cell *matCellDef="let v">{{ v.destination }}</td>
+      </ng-container>
+
+      <!-- Genre -->
+      <ng-container matColumnDef="genre">
+        <th mat-header-cell *matHeaderCellDef>Genre</th>
+        <td mat-cell *matCellDef="let v">{{ v.genre }}</td>
+      </ng-container>
+
+      <!-- Date d’entrée -->
+      <ng-container matColumnDef="dateEntree">
+        <th mat-header-cell *matHeaderCellDef>Date d’entrée</th>
+        <td mat-cell *matCellDef="let v">{{ v.dateEntree | date: 'dd/MM/yyyy HH:mm' }}</td>
+      </ng-container>
+
+      <!-- Action -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Action</th>
+        <td mat-cell *matCellDef="let v">
+          <button mat-stroked-button color="warn" (click)="supprimer(v.id)">
+            🗑️ Supprimer
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="colonnes"></tr>
+      <tr mat-row *matRowDef="let row; columns: colonnes;"></tr>
+    </table>
+  </div>
+</div>

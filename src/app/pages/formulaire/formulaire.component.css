@@ -1,0 +1,20 @@
+/* 🌟 Conteneur général centré comme dans Now UI */
+.formulaire-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 20px;
+    background-color: #f4f6f9;
+    min-height: 100vh;
+  }
+  
+  /* 📦 Carte contenant le formulaire */
+  .card-container {
+    width: 100%;
+    max-width: 1000px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    padding: 30px;
+  }
+  

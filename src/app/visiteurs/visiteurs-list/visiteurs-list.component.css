@@ -1,0 +1,112 @@
+/* 🎯 Conteneur principal */
+.container-visiteurs {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px;
+  background-color: #f8fafc;
+}
+
+/* 🧾 Titre */
+.list-title {
+  text-align: center;
+  font-size: 26px;
+  font-weight: bold;
+  color: #1e293b;
+  margin-bottom: 30px;
+}
+
+/* 📊 Carte compteur */
+.compteur-card {
+  background: linear-gradient(90deg, #e3f2fd, #bbdefb);
+  padding: 20px;
+  border-left: 6px solid #2563eb;
+  border-radius: 12px;
+  text-align: center;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 10px rgba(33, 150, 243, 0.1);
+}
+
+.compteur-card h3 {
+  color: #0d47a1;
+  font-weight: 600;
+  font-size: 18px;
+  margin: 0;
+}
+
+/* 📋 Table */
+.table-style {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  width: 100%;
+}
+
+/* 🧩 Entêtes + Cellules */
+table th {
+  background-color: #f1f5f9;
+  color: #334155;
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
+  padding: 14px;
+}
+
+table td {
+  font-size: 14px;
+  color: #444;
+  padding: 14px;
+  vertical-align: middle;
+}
+
+/* 🖱️ Hover ligne */
+tr.mat-row:hover {
+  background-color: #f9fafb;
+  transition: background-color 0.3s ease;
+}
+
+/* 👤 Avatar */
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  margin-right: 8px;
+  border: 2px solid #e0e0e0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  vertical-align: middle;
+}
+
+/* 🗑️ Bouton */
+button[mat-stroked-button] {
+  font-weight: 600;
+  color: #d32f2f;
+  border-color: #d32f2f;
+  padding: 6px 16px;
+  font-size: 13px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+button[mat-stroked-button]:hover {
+  background-color: rgba(211, 47, 47, 0.1);
+  border-color: #b71c1c;
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .avatar {
+    width: 28px;
+    height: 28px;
+  }
+
+  table th,
+  table td {
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  button[mat-stroked-button] {
+    padding: 4px 10px;
+    font-size: 12px;
+  }
+}

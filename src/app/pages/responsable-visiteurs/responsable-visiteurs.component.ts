@@ -6,7 +6,7 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
-import { VisiteursService } from '../../visiteurs/visiteurs.service';
+import { Visiteur, VisiteursService } from '../visiteurs/visiteurs.service';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
@@ -57,7 +57,7 @@ export class ResponsableVisiteursComponent implements OnInit {
   chargerVisiteurs(): void {
     this.visiteursService
       .getVisiteursPaginés(this.currentPage, this.pageSize, this.sortField, this.sortDirection)
-      .subscribe(data => {
+      .subscribe((data: { content: Visiteur[]; totalElements: number }) => {
         this.dataSource = new MatTableDataSource<any>(data.content);
         this.totalItems = data.totalElements;
         this.dataSource.filterPredicate = (data, filter) =>
@@ -67,6 +67,7 @@ export class ResponsableVisiteursComponent implements OnInit {
         this.appliquerFiltre();
       });
   }
+  
 
   onPageChange(event: any) {
     this.currentPage = event.pageIndex;
